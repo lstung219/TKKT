@@ -1,4 +1,4 @@
-using ASC.Web.Models;
+﻿using ASC.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;   
 using Microsoft.Extensions.Options;
@@ -6,7 +6,7 @@ using ASC.Web.Configuration;
 using ASC.Utilities;
 namespace ASC.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AnonymousController
     {
         private readonly ILogger<HomeController> _logger;
         private IOptions<ApplicationSettings> _settings;
@@ -16,11 +16,11 @@ namespace ASC.Web.Controllers
             _settings = settings;
         }
 
-        public HomeController(ILogger<HomeController> logger, IOptions<ApplicationSettings> settings)
-        {
-            _logger = logger;
-            _settings = settings;
-        }
+        //public HomeController(ILogger<HomeController> logger, IOptions<ApplicationSettings> settings)
+        //{
+        //    _logger = logger;
+        //    _settings = settings;
+        //}
 
 
 
@@ -42,10 +42,6 @@ namespace ASC.Web.Controllers
         }
 
         public IActionResult Privacy()
-        {
-            return View();
-        }
-        public IActionResult Dashboard()
         {
             return View();
         }

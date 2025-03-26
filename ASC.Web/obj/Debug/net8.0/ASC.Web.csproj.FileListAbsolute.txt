@@ -13,6 +13,7 @@ C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\ASC.Business.e
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\appsettings.json
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\appsettings.Production.json
+C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Navigation\Navigation.json
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\ASC.Web.staticwebassets.runtime.json
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\ASC.Web.exe
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\ASC.Web.deps.json
@@ -21,8 +22,10 @@ C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\ASC.Web.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\ASC.Web.pdb
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Castle.Core.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Humanizer.dll
+C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\MailKit.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -88,6 +91,7 @@ C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.Visu
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\MimeKit.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Moq.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Web\bin\Debug\net8.0\Newtonsoft.Json.dll

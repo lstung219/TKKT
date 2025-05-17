@@ -10,6 +10,7 @@
         "dependencies": {
           "ASC.DataAccess": "1.0.0",
           "ASC.Model": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Google": "3.1.20",
           "Microsoft.AspNetCore.Session": "2.3.0",
           "WindowsAzure.Storage": "9.3.3"
         },
@@ -52,14 +53,15 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Cryptography.Internal/2.3.0": {
+      "Microsoft.AspNetCore.Authentication.Google/3.1.20": {
         "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25010"
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "3.1.20.0",
+            "fileVersion": "3.100.2021.47242"
           }
         }
       },
+      "Microsoft.AspNetCore.Cryptography.Internal/2.3.0": {},
       "Microsoft.AspNetCore.DataProtection/2.3.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.Internal": "2.3.0",
@@ -71,68 +73,31 @@
           "Microsoft.Win32.Registry": "4.5.0",
           "System.Security.Cryptography.Xml": "8.0.2",
           "System.Security.Principal.Windows": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.DataProtection.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25014"
-          }
         }
       },
-      "Microsoft.AspNetCore.DataProtection.Abstractions/2.3.0": {
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.DataProtection.Abstractions.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25014"
-          }
-        }
-      },
+      "Microsoft.AspNetCore.DataProtection.Abstractions/2.3.0": {},
       "Microsoft.AspNetCore.Hosting.Abstractions/2.3.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "2.3.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.3.0",
           "Microsoft.Extensions.Hosting.Abstractions": "8.0.1"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Hosting.Abstractions.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25014"
-          }
         }
       },
       "Microsoft.AspNetCore.Hosting.Server.Abstractions/2.3.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "2.3.0",
           "Microsoft.Extensions.Configuration.Abstractions": "9.0.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25014"
-          }
         }
       },
       "Microsoft.AspNetCore.Http.Abstractions/2.3.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "2.3.0",
           "System.Text.Encodings.Web": "9.0.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25014"
-          }
         }
       },
       "Microsoft.AspNetCore.Http.Features/2.3.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "9.0.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25014"
-          }
         }
       },
       "Microsoft.AspNetCore.Session/2.3.0": {
@@ -142,12 +107,6 @@
           "Microsoft.Extensions.Caching.Abstractions": "9.0.2",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.2",
           "Microsoft.Extensions.Options": "9.0.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Session.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25014"
-          }
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -345,12 +304,6 @@
       "Microsoft.Extensions.FileProviders.Abstractions/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "9.0.2"
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
-          }
         }
       },
       "Microsoft.Extensions.Hosting.Abstractions/8.0.1": {
@@ -1430,6 +1383,7 @@
         "dependencies": {
           "ASC.Model": "1.0.0",
           "ASC.Utilities": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Google": "3.1.20",
           "Microsoft.AspNetCore.Session": "2.3.0",
           "WindowsAzure.Storage": "9.3.3"
         },
@@ -1442,6 +1396,7 @@
       },
       "ASC.Model/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": "3.1.20",
           "Microsoft.AspNetCore.Session": "2.3.0",
           "Microsoft.EntityFrameworkCore": "9.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.2",
@@ -1456,6 +1411,7 @@
       },
       "ASC.Utilities/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": "3.1.20",
           "Microsoft.AspNetCore.Session": "2.3.0",
           "Newtonsoft.Json": "13.0.3",
           "WindowsAzure.Storage": "9.3.3"
@@ -1488,6 +1444,13 @@
       "sha512": "sha512-Sf4BoE6Q3jTgFkgBkx7qztYOFELBCo+wQgpYDwal/qJ1unBH73ywPztIJKXBXORRzAeNijsuxhk94h0TIMvfYg==",
       "path": "azure.identity/1.11.4",
       "hashPath": "azure.identity.1.11.4.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/3.1.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V4t6QtL86dQQNnuMbluRejJMTLUe5+vYTW4zgd7jAAynzdOMoJV/n/GMRTB+8pdTaQw3b50uBmNR5ENXHLzc1g==",
+      "path": "microsoft.aspnetcore.authentication.google/3.1.20",
+      "hashPath": "microsoft.aspnetcore.authentication.google.3.1.20.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/2.3.0": {
       "type": "package",

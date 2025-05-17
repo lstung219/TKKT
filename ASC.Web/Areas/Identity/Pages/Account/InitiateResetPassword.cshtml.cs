@@ -1,11 +1,12 @@
-using ASC.Utilities;
-using ASC.Web.Services;
+using Azure.Core;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Policy;
+using ASC.Web.Services;
+using ASC.Utilities;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ASC.Web.Areas.Identity.Pages.Account
 {
@@ -26,30 +27,29 @@ namespace ASC.Web.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync()
         {
+            // Find User
             var userEmail = HttpContext.User.GetCurrentUserDetails().Email;
             var user = await _userManager.FindByEmailAsync(userEmail);
-            if (user == null)
-            {
-                return BadRequest("User not found.");
-            }
 
+            // Generate User code
             var code = await _userManager.GeneratePasswordResetTokenAsync(user);
             var encodedCode = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
             var callbackUrl = Url.Page(
                 "/Account/ResetPassword",
                 pageHandler: null,
-                values: new { userId = user.Id, code = encodedCode, email = userEmail },
+                values: new 
+                { 
+                    userId = user.Id, 
+                    code = encodedCode,
+                    email = userEmail
+                },
                 protocol: Request.Scheme);
 
-            Console.WriteLine($"Token: {code}");
-            Console.WriteLine($"Encoded Token: {encodedCode}");
-            Console.WriteLine($"Callback URL: {callbackUrl}");
-
+            // Send Email
             await _emailSender.SendEmailAsync(userEmail, "Reset Password",
                 $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
 
-            return LocalRedirect(Url.Content("~/Identity/Account/ResetPasswordConfirmation"));
+            return RedirectToPage("./ResetPasswordConfirmation");
         }
-
     }
 }

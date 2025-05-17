@@ -1,11 +1,11 @@
-﻿@page
+﻿@* @page
 @model ExternalLoginModel
 @{
     ViewData["Title"] = "Register";
 }
 
 <h1>@ViewData["Title"]</h1>
-<h2 id="external-login-title">Associate your @Model.ProviderDisplayName account.</h2>
+<h4 id="external-login-title">Associate your @Model.ProviderDisplayName account.</h4>
 <hr />
 
 <p id="external-login-description" class="text-info">
@@ -23,8 +23,47 @@
                 <label asp-for="Input.Email" class="form-label"></label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+ *@
+
+@page
+@model ExternalLoginModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m6 offset-m3">
+            <form asp-page-handler="Confirmation" asp-route-returnurl="@Model.ReturnUrl" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <p class="text-info">
+                    You're successfully authenticated with <strong>@Model.ProviderDisplayName</strong>.
+                    Please click the Register button to finish
+                    logging in.
+                </p>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="Input.Email" type="email" readonly />
+                        <label asp-for="Input.Email">Email</label>
+                    </div>
+                </div>
+                <div class="row center">
+                    <button class="btn waves-effect waves-light" type="submit">
+                        Register
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

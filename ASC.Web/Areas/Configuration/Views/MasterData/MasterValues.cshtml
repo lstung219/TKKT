@@ -1,0 +1,463 @@
+﻿@model ASC.Web.Areas.Configuration.Models.MasterValuesViewModel
+@{
+    Layout = "_SecureLayout";
+}
+
+<div class="row"></div>
+<div class="row padding-top-20px padding-left-20px padding-right-20px">
+    <div class="row z-depth-3">
+        <div class="section white-text padding-left-10px blue-grey lighten-1">
+            <h5>Master Values</h5>
+        </div>
+        <div class="divider"></div>
+        <div class="col s4 padding-bottom-15px">
+            <select id="ddMasterKeys" asp-items="@(new SelectList(ViewBag.MasterKeys,"RowKey","PartitionKey"))">
+                <option value="">--Select--</option>
+            </select>
+            <label>Partition Key</label>
+        </div>
+        <div class="col s4 offset-s4 padding-bottom-15px right-align">
+            <a class="modal-trigger waves-effect waves-light" href="#modal1">
+                <img src="~/images/excel.png" style="width: 32px; height: auto;" />
+            </a>
+        </div>
+
+        <div class="col s12 padding-bottom-15px">
+            <b> Display List of Master Values </b>
+            <table class="highlight centered" id="tblMasterValues">
+                <thead>
+                    <tr>
+                        <th data-field="RowKey">Row Key</th>
+                        <th data-field="PartitionKey">Partition Key</th>
+                        <th data-field="Name">Name</th>
+                        <th data-field="IsActive">Is Active</th>
+                        <th data-field="Actions">Edit</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="row"></div>
+    <!-- Details Section -->
+    <div class="row z-depth-3">
+        <div class="col s12 padding-0px">
+            <div class="section white-text padding-left-10px blue-grey lighten-1">
+                <h5>Master Value Details</h5>
+            </div>
+            <div class="divider"></div>
+            <form asp-area="Configuration" asp-controller="MasterValues" method="post" class="col s12" id="formMasterValue">
+                <div>
+                    <input type="hidden" asp-for="IsEdit" />
+                    <input type="hidden" asp-for="MasterValueInContext.RowKey" />
+                    <div class="input-field col s4">
+                        <input asp-for="MasterValueInContext.RowKey" id="Input_MasterKey_RowKey" readonly />
+                        <label asp-for="MasterValueInContext.RowKey"></label>
+                    </div>
+                    <div class="input-field col s4">
+                        <select id="Select_MasterValueInContext_PartitionKey"
+                                asp-for="MasterValueInContext.PartitionKey"
+                                asp-items="@(new SelectList(ViewBag.MasterKeys,"RowKey","PartitionKey"))" required="required">
+                            <option value="">--Select--</option>
+                        </select>
+                        <label>Partition Key</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input asp-for="MasterValueInContext.Name" id="MasterValueInContext_Name" class="validate" />
+                        <label asp-for="MasterValueInContext.Name"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <div class="switch">
+                            <label>
+                                Is Active
+                                <input asp-for="MasterValueInContext.IsActive" id="MasterValueInContext_IsActive" class="validate" />
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-field col s8 right-align">
+                        <button class="btn waves-effect waves-light btnSubmit" type="submit" name="action">
+                            Create
+                            <i class="material-icons right">send</i>
+                        </button>
+                        <button class="btn waves-effect waves-light reset red lighten-1"
+                                type="button" name="action">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+                <div class="row col s12 right-align" asp-validation-summary="All">
+                </div>
+            </form>
+        </div>
+        <div class="row"></div>
+    </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h5>Upload Excel</h5>
+        <p>Upload the Excel file that contains all the master values.</p>
+        <!-- div to display errors -->
+        <div class="row hide divErrors">
+            <div class="card-panel red lighten-1">
+                <div class="col s12">
+                    <span class="white-text errors"></span>
+                </div>
+            </div>
+        </div>
+        <!-- div to display progress -->
+        <div class="progress hide">
+            <div class="indeterminate"></div>
+        </div>
+        <form action="UploadExcel" controller="MasterData" method="post">
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" id="files">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+                <div class="input-field row right">
+                    <button class="btn waves-effect waves-light btnUpload" type="button" name="action">
+                        Upload
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Initialize Materialize components
+            $('select').formSelect();
+            $('.modal').modal();
+
+            // Set up anti-forgery token for AJAX
+            var token = $('input[type=hidden][name=__RequestVerificationToken]', document).val();
+            $.ajaxSetup({
+                cache: false,
+                headers: { 'RequestVerificationToken': token }
+            });
+
+            // Initialize DataTable
+            var table = $('#tblMasterValues').DataTable({
+                destroy: true,
+                ajax: {
+                    url: '@Url.Action("MasterValuesByKey", "MasterData")',
+                    type: "GET",
+                    cache: false,
+                    data: function (d) {
+                        var key = $('#ddMasterKeys').val();
+                        console.log("DataTable AJAX data - key:", key);
+                        d.key = key || '';
+                    },
+                    dataSrc: function (json) {
+                        console.log("DataTable AJAX response:", json);
+                        return json || [];
+                    },
+                    error: function (xhr, error, thrown) {
+                        console.log("DataTable AJAX error:", xhr.responseText, error, thrown);
+                    }
+                },
+                pageLength: 3,
+                lengthMenu: [[3, 5, 10, -1], [3, 5, 10, 'All']],
+                columns: [
+                    { data: 'RowKey', defaultContent: '' },
+                    { data: 'PartitionKey', defaultContent: '' },
+                    { data: 'Name', defaultContent: '' },
+                    { data: 'IsActive', defaultContent: '' },
+                    { data: 'Actions', defaultContent: '', orderable: false, searchable: false }
+                ],
+                columnDefs: [
+                    {
+                        targets: [3],
+                        data: "IsActive",
+                        render: function (data) {
+                            return data ? '<img src="/images/green_tick.png" />' : '<img src="/images/red_cross.png" />';
+                        }
+                    },
+                    {
+                        targets: [4],
+                        data: "Actions",
+                        render: function (data, type, row) {
+                            console.log("DataTable row data:", row);
+                            return '<i class="small material-icons edit cursor-hand">mode_edit</i>';
+                        }
+                    }
+                ]
+            });
+
+            // Style DataTable
+            $('#tblMasterValues').css("width", "100%");
+            $('select[name="tblMasterValues_length"]').formSelect();
+            $('select[required]').css({
+                display: 'block',
+                position: 'absolute',
+                visibility: 'hidden'
+            });
+
+            // Sync ddMasterKeys with DataTable on change
+            $("#ddMasterKeys").on("change", function () {
+                var selectedKey = $(this).val();
+                var selectedText = $(this).find("option:selected").text();
+                console.log("ddMasterKeys changed to:", selectedKey);
+                if (selectedKey) {
+                    var reloadUrl = '@Url.Action("MasterValuesByKey", "MasterData")' + '?key=' + encodeURIComponent(selectedText);
+                    console.log("Reloading DataTable with URL (ddMasterKeys change):", reloadUrl);
+                    table.ajax.url(reloadUrl).load(null, false);
+                } else {
+                    console.log("ddMasterKeys is empty, clearing DataTable");
+                    table.clear().draw();
+                }
+            });
+
+            // Initialize form validation
+            $("#formMasterValue").validate({
+                rules: {
+                    "MasterValueInContext.PartitionKey": { required: true },
+                    "MasterValueInContext.Name": { required: true, maxlength: 100 }
+                },
+                messages: {
+                    "MasterValueInContext.PartitionKey": "",
+                    "MasterValueInContext.Name": {
+                        required: "Please enter a name.",
+                        maxlength: "Name cannot exceed 100 characters."
+                    }
+                },
+                errorElement: "span",
+                errorPlacement: function (error, element) {
+                    if (element.is("select")) {
+                        error.insertAfter(element.siblings(".select-dropdown"));
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+                ignore: ":hidden:not(select)",
+                highlight: function (element) { $(element).closest('.input-field').addClass('error'); },
+                unhighlight: function (element) { $(element).closest('.input-field').removeClass('error'); },
+                onfocusout: function (element) {
+                    if ($(element).is("select")) {
+                        setTimeout(function () {
+                            console.log("Validating select on focusout:", $(element).val());
+                            $(element).valid();
+                        }, 300);
+                    } else {
+                        $(element).valid();
+                    }
+                }
+            });
+
+            // Sync Materialize select with validation and ddMasterKeys
+            $("#Select_MasterValueInContext_PartitionKey").on("change", function () {
+                var selectedValue = $(this).val();
+                console.log("Selected PartitionKey (RowKey):", selectedValue);
+                $(this).siblings(".select-dropdown").val($(this).find("option:selected").text());
+                $(this).valid();
+                $("#ddMasterKeys").val(selectedValue).formSelect();
+            });
+
+            $("#Select_MasterValueInContext_PartitionKey").on("focus blur", function () {
+                console.log("Select value on focus/blur:", $(this).val());
+            });
+
+            // Handle edit button click
+            $('#tblMasterValues').on('click', '.edit', function () {
+                var row = table.row($(this).closest('tr')).data();
+                var rowKey = row ? row.RowKey : undefined;
+                var partitionKey = row ? row.PartitionKey : undefined;
+                console.log("Edit clicked - RowKey:", rowKey, "PartitionKey:", partitionKey);
+
+                if (!rowKey || !partitionKey) {
+                    console.log("RowKey or PartitionKey is missing, cannot proceed with edit.");
+                    M.toast({ html: 'Error: Unable to load data for editing.', classes: 'red' });
+                    return;
+                }
+
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("GetMasterValue", "MasterData")',
+                    data: { rowKey: rowKey, partitionKey: partitionKey },
+                    success: function (data) {
+                        console.log("GetMasterValue response:", data);
+                        if (data.Success) {
+                            var masterValue = data.MasterValue;
+                            $("#IsEdit").val(true);
+                            $("#Input_MasterKey_RowKey").val(masterValue.RowKey);
+                            var partitionKeyRowKey = $("#Select_MasterValueInContext_PartitionKey option")
+                                .filter(function () {
+                                    return $(this).text() === masterValue.PartitionKey;
+                                }).val();
+                            if (partitionKeyRowKey) {
+                                $("#Select_MasterValueInContext_PartitionKey").val(partitionKeyRowKey).formSelect();
+                            } else {
+                                console.log("Warning: No matching PartitionKey found in dropdown:", masterValue.PartitionKey);
+                                M.toast({ html: 'Partition key not found in dropdown.', classes: 'red' });
+                            }
+                            $("#MasterValueInContext_Name").val(masterValue.Name);
+                            $("#MasterValueInContext_IsActive").prop("checked", masterValue.IsActive);
+                            M.updateTextFields();
+
+                            // Đổi nút Create thành Save
+                            $('.btnSubmit').text('Save');
+                        } else {
+                            M.toast({ html: 'Error loading master value: ' + data.Error, classes: 'red' });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("AJAX error:", error, xhr.responseText);
+                        M.toast({ html: 'An error occurred while loading: ' + error, classes: 'red' });
+                    }
+                });
+            });
+
+            // Handle reset button click
+            $(document).on('click', '.reset', function () {
+                console.log("Reset button clicked");
+                var form = $("#formMasterValue");
+                form[0].reset(); // Reset form inputs
+                $("#IsEdit").val(false); // Đặt lại trạng thái chỉnh sửa
+                $("#Select_MasterValueInContext_PartitionKey").val('').formSelect(); // Reset dropdown
+                $("#MasterValueInContext_Name").val('');
+                $("#MasterValueInContext_IsActive").prop("checked", false);
+                form.validate().resetForm(); // Reset validation
+                $('.input-field').removeClass('error'); // Xóa class error
+                $('.select-wrapper').removeClass('valid'); // Xóa class valid của Materialize
+                M.updateTextFields(); // Cập nhật Materialize fields
+
+                // Đổi nút Save thành Create
+                $('.btnSubmit').text('Create');
+            });
+
+            // Save/Create Button Click Event
+            $(document).on("click", ".btnSubmit", function (event) {
+                event.preventDefault();
+
+                var form = $("#formMasterValue");
+                var select = $("#Select_MasterValueInContext_PartitionKey");
+                var nameInput = $("#MasterValueInContext_Name");
+                var isActive = $("#MasterValueInContext_IsActive");
+
+                console.log("Form submission - Select value:", select.val());
+                console.log("Form submission - Name value:", nameInput.val());
+                console.log("Form submission - IsActive:", isActive.is(":checked"));
+
+                select.siblings(".select-dropdown").val(select.find("option:selected").text());
+                select.valid();
+                nameInput.valid();
+                isActive.valid();
+
+                console.log("Select valid:", select.valid());
+                console.log("Name valid:", nameInput.valid());
+                console.log("IsActive valid:", isActive.valid());
+                console.log("Validation errors:", form.validate().errorList);
+
+                if (form.valid()) {
+                    var masterData = {
+                        Name: nameInput.val(),
+                        PartitionKey: select.find("option:selected").text(),
+                        IsActive: isActive.is(":checked"),
+                        RowKey: $("#IsEdit").val() === "true" ? $("#Input_MasterKey_RowKey").val() : null
+                    };
+
+                    console.log("Sending masterData:", masterData);
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("MasterValues", "MasterData")',
+                        data: { masterValue: masterData, isEdit: $("#IsEdit").val() === "true" },
+                        success: function (data) {
+                            console.log("Server response:", data);
+                            if (data.Success) {
+                                var partitionKey = select.find("option:selected").text();
+                                console.log("PartitionKey for reload:", partitionKey);
+                                $("#ddMasterKeys").val(select.val()).formSelect();
+                                console.log("ddMasterKeys value after setting:", $('#ddMasterKeys').val());
+                                var reloadUrl = '@Url.Action("MasterValuesByKey", "MasterData")' + '?key=' + encodeURIComponent(partitionKey);
+                                console.log("Reloading DataTable with URL:", reloadUrl);
+                                setTimeout(function () {
+                                    table.ajax.url(reloadUrl).load(null, false, { cache: false }, function () {
+                                        console.log("DataTable reload complete");
+                                        if (table.data().count() === 0) {
+                                            console.log("No data loaded, retrying reload...");
+                                            setTimeout(function () {
+                                                table.ajax.url(reloadUrl).load(null, false, { cache: false });
+                                            }, 2000);
+                                        }
+                                        // Gọi reset form sau khi reload
+                                        $('.reset').click();
+                                        $('.select-wrapper').removeClass('valid');
+                                        M.toast({ html: 'Master value saved successfully!', classes: 'green' });
+
+                                        // Đổi nút Save thành Create
+                                        $('.btnSubmit').text('Create');
+                                    });
+                                }, 2000);
+                            } else {
+                                M.toast({ html: 'Error saving master value: ' + data.Error, classes: 'red' });
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("AJAX error:", error, xhr.responseText);
+                            M.toast({ html: 'An error occurred while saving: ' + error, classes: 'red' });
+                        }
+                    });
+                } else {
+                    console.log("Form validation failed");
+                    M.toast({ html: 'Please fill all required fields correctly.', classes: 'red' });
+                }
+            });
+
+            // Excel Upload
+            $(document).on('click', '.btnUpload', function () {
+                var fileUpload = $("#files").get(0);
+                var files = fileUpload.files;
+
+                // Kiểm tra nếu không có file được chọn
+                if (!files || files.length === 0) {
+                    M.toast({ html: 'Please select an Excel file to upload.', classes: 'red' });
+                    return;
+                }
+
+                var data = new FormData();
+                // Sử dụng key 'files' để khớp với parameter IFormFile files trong UploadExcel
+                data.append('files', files[0]); // Chỉ gửi file đầu tiên, khớp với tên parameter
+                console.log("Uploading file:", files[0].name); // Log file được chọn
+
+                $(".progress").removeClass("hide");
+
+                $.ajax({
+                    type: "POST",
+                    url: '/Configuration/MasterData/UploadExcel',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (message) {
+                        console.log("UploadExcel response:", message);
+                        $(".progress").addClass("hide");
+                        if (message.Success) {
+                            window.location.reload();
+                        }
+                        if (message.Error) {
+                            $(".divErrors").removeClass("hide");
+                            $(".errors").html(message.Text);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("UploadExcel AJAX error:", xhr.responseText, status, error);
+                        $(".progress").addClass("hide");
+                        M.toast({ html: 'An error occurred while uploading: ' + (xhr.responseText || error), classes: 'red' });
+                    }
+                });
+            });
+        });
+    </script>
+}

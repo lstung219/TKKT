@@ -6,14 +6,7 @@ C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\ASC.Model.pd
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Humanizer.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.DataProtection.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.Hosting.Abstractions.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Abstractions.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.Session.dll
+C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Build.Locator.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -35,7 +28,6 @@ C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Ex
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
-C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\luuso\source\repos\ASC.Solution\ASC.Model\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

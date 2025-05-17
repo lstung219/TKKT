@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "343u7nHRFfg=",
+  "dgSpecHash": "K4qu1+Z3RtQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Model\\ASC.Model.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luuso\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\luuso\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\luuso\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\luuso\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\3.1.20\\microsoft.aspnetcore.authentication.google.3.1.20.nupkg.sha512",
     "C:\\Users\\luuso\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\2.3.0\\microsoft.aspnetcore.cryptography.internal.2.3.0.nupkg.sha512",
     "C:\\Users\\luuso\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.3.0\\microsoft.aspnetcore.dataprotection.2.3.0.nupkg.sha512",
     "C:\\Users\\luuso\\.nuget\\packages\\microsoft.aspnetcore.dataprotection.abstractions\\2.3.0\\microsoft.aspnetcore.dataprotection.abstractions.2.3.0.nupkg.sha512",

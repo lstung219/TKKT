@@ -8,52 +8,55 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+    color: #444;
 }
 
 p {
-  line-height: 2rem;
+    line-height: 2rem;
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+    color: #26a69a;
 }
 
 .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-}
-  .parallax-container .section {
-    width: 100%;
-  }
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
 }
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+    .parallax-container .section {
+        width: 100%;
+    }
+
+@media only screen and (max-width: 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #index-banner .section {
+        top: 0;
+    }
 }
 
 .icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
+    padding: 0 15px;
 }
 
+    .icon-block .material-icons {
+        font-size: inherit;
+    }
+
 footer.page-footer {
-  margin: 0;
+    margin: 0;
 }
 
 /* Removes padding */
@@ -109,3 +112,55 @@ header.secureLayout, main.secureLayout, footer.secureLayout {
 .validation-summary-errors {
     color: #FF4081;
 }
+
+.padding-bottom-15px {
+    padding-bottom: 15px !important;
+}
+
+.cursor-hand {
+    cursor: pointer;
+}
+
+.padding-left-20px {
+    padding-left: 20px;
+}
+
+.padding-right-20px {
+    padding-right: 20px;
+}
+
+.margin-top-50px {
+    margin-top: 50px;
+}
+
+.margin-bottom-50px {
+    margin-bottom: 50px;
+}
+
+/* Fix label overlapping input when it has a value */
+/*.input-field input:focus + .input-field label,
+.input-field input:not(:placeholder-shown) + .input-field label,
+.input-field input:valid + .input-field label,
+.input-field input:disabled:not(:placeholder-shown) + .input-field label,
+.input-field label.active {
+    transform: translateY(-14px) scale(0.8) !important;
+    transform-origin: 0 0;
+    color: #26a69a;*/ /* Teal color when active */
+/*}*/
+/* Ensure smooth label transitions */
+/*.input-field label {
+    transition: transform 0.2s ease-out, color 0.2s ease-out, font-size 0.2s ease-out;
+}*/
+
+/* Reset label when input is empty */
+/*.input-field input:placeholder-shown + label {
+    transform: translateY(0);
+    font-size: 1rem;
+    color: #9e9e9e;*/ /* Materialize default label color */
+/*}*/
+
+/* Adjust input padding to align with Materialize */
+/*.input-field input {
+    padding-top: 0.8rem;*/ /* Matches Materialize’s default */
+    /*margin-bottom: 0;*/ /* Prevent extra spacing */
+/*}*/

@@ -15,5 +15,6 @@ namespace ASC.DataAccess.Interfaces
         Task<T> FindAsync(string partitionKey, string rowKey);
         Task<IEnumerable<T>> FindAllByPartitionKeyAsync(string partitionKey);
         Task<IEnumerable<T>> FindAllAsync();
+
     }
 }

@@ -37,8 +37,24 @@
       "PackagePath": "staticwebassets\\images\\background3.jpg"
     },
     {
-      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\images\\logo.jpg",
-      "PackagePath": "staticwebassets\\images\\logo.jpg"
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\images\\excel.png",
+      "PackagePath": "staticwebassets\\images\\excel.png"
+    },
+    {
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\images\\green_tick.png",
+      "PackagePath": "staticwebassets\\images\\green_tick.png"
+    },
+    {
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\images\\male.jpg",
+      "PackagePath": "staticwebassets\\images\\male.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\images\\red_cross.png",
+      "PackagePath": "staticwebassets\\images\\red_cross.png"
     },
     {
       "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\js\\init.js",
@@ -123,6 +139,22 @@
     {
       "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css"
+    },
+    {
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css.map"
+    },
+    {
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css"
+    },
+    {
+      "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css.map"
     },
     {
       "Id": "C:\\Users\\luuso\\source\\repos\\ASC.Solution\\ASC.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",

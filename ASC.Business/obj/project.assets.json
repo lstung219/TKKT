@@ -47,6 +47,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.Google/3.1.20": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/2.3.0": {
         "type": "package",
         "compile": {
@@ -2485,6 +2501,7 @@
         "dependencies": {
           "ASC.Model": "1.0.0",
           "ASC.Utilities": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Google": "3.1.20",
           "Microsoft.AspNetCore.Session": "2.3.0",
           "WindowsAzure.Storage": "9.3.3"
         },
@@ -2499,6 +2516,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": "3.1.20",
           "Microsoft.AspNetCore.Session": "2.3.0",
           "Microsoft.EntityFrameworkCore": "9.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.2",
@@ -2515,6 +2533,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": "3.1.20",
           "Microsoft.AspNetCore.Session": "2.3.0",
           "Newtonsoft.Json": "13.0.3",
           "WindowsAzure.Storage": "9.3.3"
@@ -2565,6 +2584,21 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/3.1.20": {
+      "sha512": "V4t6QtL86dQQNnuMbluRejJMTLUe5+vYTW4zgd7jAAynzdOMoJV/n/GMRTB+8pdTaQw3b50uBmNR5ENXHLzc1g==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/3.1.20",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.3.1.20.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/2.3.0": {
@@ -7702,6 +7736,7 @@
     "net8.0": [
       "ASC.DataAccess >= 1.0.0",
       "ASC.Model >= 1.0.0",
+      "Microsoft.AspNetCore.Authentication.Google >= 3.1.20",
       "Microsoft.AspNetCore.Session >= 2.3.0",
       "WindowsAzure.Storage >= 9.3.3"
     ]
@@ -7758,6 +7793,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[3.1.20, )"
+          },
           "Microsoft.AspNetCore.Session": {
             "target": "Package",
             "version": "[2.3.0, )"

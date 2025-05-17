@@ -9,7 +9,6 @@ namespace ASC.Solution.Services
     public class AuthMessageSender : IEmailSender, ISmsSender
     {
         private IOptions<ApplicationSettings> _settings;
-
         public AuthMessageSender(IOptions<ApplicationSettings> settings)
         {
             _settings = settings;
@@ -34,8 +33,9 @@ namespace ASC.Solution.Services
 
         public Task SendSmsAsync(string number, string message)
         {
-            // Plug in your SMS service here to send a text message.
+            //Plug in your SMS service here to send a text message.
             return Task.FromResult(0);
         }
     }
 }
+

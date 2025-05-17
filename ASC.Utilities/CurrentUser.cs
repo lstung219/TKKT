@@ -13,5 +13,4 @@ namespace ASC.Utilities
         public bool IsActive { get; set; }
         public string[] Roles { get; set; }
     }
-
 }

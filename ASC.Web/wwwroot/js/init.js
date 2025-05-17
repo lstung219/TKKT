@@ -1,9 +1,11 @@
 (function ($) {
     $(function () {
+        // Initialize Materialize CSS components
         $('.sidenav').sidenav();
         $('.parallax').parallax();
+        // M.updateTextFields(); // Optional: Initialize text fields globally
 
-        // Prevent browser back and forward buttons.
+        // Prevent browser back and forward buttons
         if (window.history && window.history.pushState) {
             window.history.pushState('forward', '', window.location.href);
             $(window).on('popstate', function (e) {
@@ -13,11 +15,8 @@
         }
 
         // Prevent right-click on entire window
-        $(document).ready(function () {
-            $(window).on("contextmenu", function () {
-                return false;
-            });
+        $(window).on("contextmenu", function () {
+            return false;
         });
-
-    }); // end of document ready
-})(jQuery); // end of jQuery name space
+    });
+})(jQuery);

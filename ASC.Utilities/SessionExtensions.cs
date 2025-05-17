@@ -10,11 +10,10 @@ namespace ASC.Utilities
 {
     public static class SessionExtensions
     {
-        public static void SetSession(this ISession session, string key, object value)
-        {
+        public static void SetSession(this ISession session, string key, object value) 
+        { 
             session.Set(key, Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(value)));
         }
-
         public static T GetSession<T>(this ISession session, string key)
         {
             byte[] value;
